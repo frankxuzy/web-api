@@ -25,5 +25,12 @@ router.get('/:id', (req, res) => {
     })
 })
 
-module.exports = router
+router.post('/', (req, res) => {
+  db.addUser(req.body)
+    .then(res.status(200).end())
+    .catch(err => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
 
+module.exports = router
