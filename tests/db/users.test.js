@@ -31,3 +31,23 @@ test('getUser gets a user by ID', () => {
     })
 })
 
+test('getActivities gets all getActivities', () => {
+  // One for each letter of the alphabet
+  const expected = 3
+  return db.getActivities(testDb)
+    .then(activities => {
+      const actual = activities.length
+      expect(actual).toBe(expected)
+    })
+})
+
+test('getActivity gets all getActivity', () => {
+  // One for each letter of the alphabet
+  const expected = 'running'
+  const id = 10001
+  return db.getActivity(id, testDb)
+    .then(activity => {
+      const actual = activity.name
+      expect(actual).toBe(expected)
+    })
+})

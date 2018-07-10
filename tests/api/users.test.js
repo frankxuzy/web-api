@@ -22,9 +22,6 @@ test('/users returns all users', () => {
     .then(res => {
       expect(res.body.users.length).toBe(expected)
     })
-    .catch(err => {
-      expect(err).toBeFalsy()
-    })
 })
 
 test('/users/:id returns a user by ID', () => {
@@ -37,8 +34,4 @@ test('/users/:id returns a user by ID', () => {
       expect(res.body.user.id).toBe(10)
       expect(res.body.user.email).toBe(expected)
     })
-    .catch(err => {
-      expect(err).toBeFalsy()
-    })
 })
-
